@@ -1,0 +1,47 @@
+A different take on validation using the dry-validation gem
+
+https://github.com/hanami/validations
+https://github.com/rails/rails/blob/master/activerecord/lib/active_record/validations.rb
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model/validations.rb
+
+http://hanamirb.org/blog/2016/05/16/validations-predicates.html
+https://guides.rubyonrails.org/active_record_validations.html
+
+https://github.com/hanami/validations/issues/76
+https://github.com/hanami/validations/issues/79
+https://github.com/hanami/validations/issues/58
+https://github.com/hanami/validations/issues/19
+
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model/validations.rb
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model/validations/presence.rb
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model/validations/validates.rb
+
+https://github.com/solnic/virtus
+
+https://solnic.codes/2015/12/07/introducing-dry-validation/
+https://solnic.codes/2015/12/28/invalid-object-is-an-anti-pattern/
+https://solnic.codes/2016/11/02/duck-typing-vs-type-safety-in-ruby/
+https://discourse.dry-rb.org/t/plans-for-dry-validation-dry-schema-a-new-gem/215/5
+
+{ 
+  user: { 
+    email: 'customer@myapp.com',
+    age: '39',
+    marketing_opt_in: 'false'
+    address: {
+      street: 'Downing Street',
+      number: '10',
+      postcode: 'SW1A 2AB'
+    }
+  }
+}
+
+Parameters are valid:
+* Age must be a valid number (type coercion)
+* Marketing opt in must be a boolean (type coercion)
+* Age must be greater than 18 (rule on primitive type)
+* Email is the right format (rule on primitive type)
+* Postcode is in the right format (rule on primitive type)
+* Email is unique (domain validation)
+* Postcode does exist (domain validation)
+
