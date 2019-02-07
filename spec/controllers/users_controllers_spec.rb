@@ -79,7 +79,7 @@ RSpec.describe UsersController, type: :request do
         expect(
           JSON.parse(response.body)
         ).to eq(
-          "email" => ["is invalid"]
+          "email" => ["is in invalid format"]
         )
       end
     end
@@ -95,13 +95,13 @@ RSpec.describe UsersController, type: :request do
         expect(User.count).to eq(0)
       end
 
-      it 'does return the errors' do
+      it 'does return the errors (but unexpected one because of type coercion)' do
         post users_path, params: params
 
         expect(
           JSON.parse(response.body)
         ).to eq(
-          "age" => ["is not a number"]
+          "age" => ["must be greater than or equal to 18"]
         )
       end
     end
