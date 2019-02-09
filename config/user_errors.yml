@@ -1,4 +1,5 @@
 en:
   errors:
     unique?: "must be unique"
+    postcode_exists_in_remote_database?: "can't be found"
 
