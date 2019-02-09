@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :email, format: EMAIL_REGEX
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 18 }
   validate :email_is_unique
-  validates_associated :address
 
   accepts_nested_attributes_for :address
 

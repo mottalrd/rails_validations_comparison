@@ -167,7 +167,7 @@ RSpec.describe UsersController, type: :request do
         expect(
           JSON.parse(response.body)
         ).to eq(
-          {"address"=>["is invalid"], "address.postcode"=>["is invalid"]}
+          {"address.postcode"=>["is invalid"]}
         )
       end
     end
