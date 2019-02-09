@@ -13,7 +13,7 @@ class UserValidator < ActiveModel::Validator
     end
 
     required(:email) { format?(EMAIL_REGEX) & unique? }
-    required(:marketing_opt_in).bool?
+    required(:marketing_opt_in) { type?(TrueClass) | type?(FalseClass) }
     required(:age) { filled? & int? & gteq?(18) }
   end
 
